@@ -1,150 +1,299 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
-
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
+.section_page {
   display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
+  flex-flow: column;
+  position: relative;
+  text-align: center;
+  top: 49px;
+  padding: 24px;
 }
-
-.main {
+.first_section {
   display: flex;
-  flex: 1;
-  width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
+  flex-flow: column;
 }
-
-.intro {
+.presentation {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-flow: column;
   text-align: left;
-  gap: 24px;
 }
-
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
+.presentation > p {
+  font-size: 12px;
+  font-family: var(--font-jetbrains-mono);
+  color: var(--primary);
+}
+.presentation > h1 {
+  margin: 12px 0;
+  font-size: 48px;
+  color: var(--foreground);
+  font-weight: 800;
+  line-height: 44px;
+  letter-spacing: -0.05em;
+}
+.presentation > h1 > span {
+  font-size: 24px;
+  font-family: var(--font-playfair-display);
+  color: var(--secondary);
   font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
+  font-style: italic;
 }
-
-.intro p {
-  max-width: 440px;
+.presentation > h2 {
   font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
+  color: var(--muted-foreground);
+  font-weight: 400;
+  line-height: 1.625;
 }
-
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.ctas {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
-}
-
-.ctas a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
+.presentation > a {
+  margin: 10px 0;
+  background-color: black;
+  color: #fff;
+  min-width: max-content;
+  max-width: max-content;
+  min-height: 44px;
+  max-height: 44px;
   padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
+  border-radius: 44px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.presentation > button {
+  margin: 0 0 10px;
+  background-color: white;
+  color: black;
+  min-width: max-content;
+  max-width: max-content;
+  min-height: 44px;
+  max-height: 44px;
+  padding: 0 16px;
+  border-radius: 44px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
   cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+.people {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 35px 0;
+}
+.people > figure {
+  border-radius: calc(0.625rem + 8px);
+  min-width: 128px;
+  max-width: 128px;
+  min-height: 128px;
+  max-height: 128px;
+  background-color: #e7e7e7;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 8px;
+}
+.people > figure > img {
+  border-radius: calc(0.625rem + 8px);
+  min-width: 128px;
+  max-width: 128px;
+  min-height: 128px;
+  max-height: 128px;
+  margin: auto;
+  object-fit: cover;
+  transform: scale(1.4);
+}
+.people > div {
+  display: flex;
+  flex-flow: column;
+  text-align: left;
+}
+.people > div > span {
+  font-family: var(--font-jetbrains-mono);
+  color: #838fa8;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+.people > div > span {
+  margin: 10px 0 0;
+}
+.people > div > p {
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.second_section {
+  display: flex;
+  flex-flow: column;
+  text-align: left;
+  margin: 20px 0;
 }
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
+.second_section > h2 {
+  font-family: var(--font-jetbrains-mono);
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: #838fa8;
+  margin-bottom: 20px;
 }
-
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
-  }
-
-  .intro {
-    gap: 16px;
-  }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
-  }
+.stacks {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 16px;
 }
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-
-  .page {
-    --background: #000;
-    --foreground: #000;
-
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
-  }
+.stack {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 12px;
+  gap: 10px;
 }
-
-.code {
-  font-family: var(--font-geist-mono);
-  font-size: 0.9em;
-  background: color-mix(in srgb, currentColor 8%, transparent);
-  padding: 0.1em 0.4em;
+.stack svg {
+  background-color: color-mix(in oklab, var(--primary) 10%, transparent);
+  padding: 8px;
+  color: var(--primary);
+  border-radius: 8px;
+  min-width: 32px;
+  max-width: 32px;
+  min-height: 32px;
+  max-height: 32px;
+}
+.stack span {
+  font-size: 14px;
+  font-family: var(--font-inter);
+}
+.stack div {
+  min-width: 6px;
+  max-width: 6px;
+  min-height: 6px;
+  max-height: 6px;
   border-radius: 6px;
+  background-color: var(--primary);
+  margin-left: auto;
+}
+.stack:nth-of-type(4n + 3) svg,
+.stack:nth-of-type(4n + 4) svg {
+  background-color: color-mix(in oklab, var(--secondary) 10%, transparent);
+  color: var(--secondary);
+}
+.stack:nth-of-type(4n + 3) div,
+.stack:nth-of-type(4n + 4) div {
+  background-color: var(--secondary);
+}
+
+.third_section {
+  display: flex;
+  flex-flow: column;
+  text-align: left;
+  margin: 20px 0;
+}
+.third_section > h2 {
+  font-family: var(--font-jetbrains-mono);
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: #838fa8;
+  margin-bottom: 20px;
+}
+.projects {
+  display: grid;
+  grid-template-columns: repeat(1, auto);
+  gap: 16px;
+}
+.project {
+  display: flex;
+  flex-flow: column;
+}
+.project figure {
+  border: solid 1px #dee5f2;
+  overflow: hidden;
+  min-width: calc(100dvw - 48px);
+  max-width: calc(100dvw - 48px);
+  min-height: 245px;
+  max-height: 245px;
+  border-radius: 16px;
+}
+.project figure img {
+  object-fit: contain;
+}
+.project h4 {
+  font-size: 24px;
+  color: black;
+  margin: 15px 0;
+}
+.project p {
+  font-size: 14px;
+  color: #838fa8;
+}
+.project div {
+  margin-top: 15px;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 10px;
+}
+.project div span {
+  background-color: color-mix(in oklab, var(--secondary) 10%, transparent);
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--secondary);
+}
+.project div span:nth-of-type(2n) {
+  background-color: color-mix(in oklab, var(--primary) 10%, transparent);
+  color: var(--primary);
+}
+
+.fourth_section {
+  display: flex;
+  flex-flow: column;
+  text-align: left;
+  margin: 20px 0;
+}
+.fourth_section > h2 {
+  font-family: var(--font-jetbrains-mono);
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: #838fa8;
+  margin-bottom: 20px;
+}
+.experiences {
+  display: grid;
+  grid-template-columns: repeat(1, auto);
+  gap: 16px;
+}
+.experience {
+  display: flex;
+  flex-flow: column;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 16px;
+}
+.experience h3 {
+  font-size: 16px;
+  color: black;
+}
+.experience span {
+  font-size: 12px;
+  color: #838fa8;
+  font-family: var(--font-jetbrains-mono);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px;
+}
+.experience span svg {
+  min-width: 12px;
+  max-width: 12px;
+  min-height: 12px;
+  max-height: 12px;
+}
+.experience p {
+  font-size: 14px;
+  color: #838fa8;
+  margin-top: 10px;
 }
