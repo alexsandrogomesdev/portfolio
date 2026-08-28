@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./page.module.css";
 import {
@@ -16,8 +18,18 @@ import {
   PanelsTopLeft,
   Server,
 } from "lucide-react";
+import { useRef } from "react";
 
 export default function Home() {
+  const projectsRef = useRef<HTMLTableSectionElement>(null);
+
+  const scrollToProjects = () => {
+    projectsRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  };
+
   return (
     <section className={styles.section_page}>
       <section className={styles.first_section}>
@@ -31,13 +43,15 @@ export default function Home() {
             Desenvolvedor web full-stack criando aplicações de alto desempenho com foco em arquitetura sólida e
             experiências memoráveis.
           </h2>
-          <a href="#projects">
-            Ver Projetos <ArrowUpRight width={16} height={16} />{" "}
-          </a>
-          <button>
-            <Mail />
-            Entrar em contato
-          </button>
+          <div>
+            <a onClick={scrollToProjects}>
+              Ver Projetos <ArrowUpRight width={16} height={16} />{" "}
+            </a>
+            <a href="https://wa.me/5511995452626" target="_blank" rel="noopener noreferrer">
+              <Mail />
+              Entrar em contato
+            </a>
+          </div>
         </div>
         <div className={styles.people}>
           <figure>
@@ -124,7 +138,7 @@ export default function Home() {
         </ul>
       </section>
 
-      <section className={styles.third_section}>
+      <section ref={projectsRef} className={styles.third_section}>
         <h2>Projetos</h2>
         <ul className={styles.projects}>
           <li className={styles.project}>
@@ -140,6 +154,7 @@ export default function Home() {
               <span>PostgreSQL</span>
               <span>Docker</span>
               <span>Nginx</span>
+              <span>Capacitor</span>
             </div>
           </li>
         </ul>
@@ -149,40 +164,46 @@ export default function Home() {
         <h2>Experiência</h2>
         <ul className={styles.experiences}>
           <li className={styles.experience}>
-            <h3>Desenvolvedor Full-Stack</h3>
-            <span>
-              <MapPin /> Freelancer
-            </span>
-            <span>
-              <Calendar /> Jan/2026 - Atualmente
-            </span>
+            <div>
+              <h3>Desenvolvedor Full-Stack</h3>
+              <span>
+                <MapPin /> Freelancer
+              </span>
+              <span>
+                <Calendar /> Jan/2026 - Atualmente
+              </span>
+            </div>
             <p>Desenvolvedor web utilizando Next.js, React, TypeScript, Node.js, PostgreSQL, Nginx e Docker.</p>
           </li>
           <li className={styles.experience}>
-            <h3>Desenvolvedor Full-Stack</h3>
-            <span>
-              <MapPin /> Freelancer
-            </span>
-            <span>
-              <Calendar /> Mai/2020 - Atualmente
-            </span>
+            <div>
+              <h3>Desenvolvedor Full-Stack</h3>
+              <span>
+                <MapPin /> Freelancer
+              </span>
+              <span>
+                <Calendar /> Mai/2020 - Atualmente
+              </span>
+            </div>
             <p>Desenvolvedor web utilizando HTML, CSS, JavaScript, PHP, MySQL e Nginx.</p>
           </li>
         </ul>
       </section>
 
       <section className={styles.fifth_section}>
-        <h2>
-          Let&apos;s build<br></br>the <span>future</span>.
-        </h2>
-        <p>
-          Atualmente aceitando oportunidades freelance e posições em tempo integral. Vamos conversar sobre seu próximo
-          projeto.
-        </p>
-        <button>
+        <div>
+          <h2>
+            Let&apos;s build<br></br>the <span>future</span>.
+          </h2>
+          <p>
+            Atualmente aceitando oportunidades freelance e posições em tempo integral. Vamos conversar sobre seu próximo
+            projeto.
+          </p>
+        </div>
+        <a href="https://wa.me/5511995452626" target="_blank" rel="noopener noreferrer">
           <Mail />
           Iniciar um Projeto
-        </button>
+        </a>
       </section>
     </section>
   );

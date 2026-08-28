@@ -1,0 +1,38 @@
+.footer {
+  display: flex;
+  flex-flow: column;
+  gap: 10px;
+  margin-top: 50px;
+}
+.div_footer {
+  display: flex;
+  flex-flow: column;
+  padding: 16px;
+}
+.ul_footer {
+  display: flex;
+  flex-flow: row;
+  gap: 16px;
+}
+.ul_footer li a {
+  color: #838fa8;
+  font-size: 14px;
+  font-family: var(--font-jetbrains-mono);
+}
+.div_footer p {
+  color: color-mix(in oklab, #838fa8 50%, transparent);
+  font-size: 10px;
+  font-family: var(--font-jetbrains-mono);
+  margin: 10px 0 50px;
+}
+
+@media (min-width: 768px) {
+  .div_footer {
+    min-width: 1150px;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 0;
+    flex-flow: row;
+    justify-content: space-between;
+  }
+}
