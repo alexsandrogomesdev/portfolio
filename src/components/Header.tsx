@@ -6,7 +6,7 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.div_header}>
         <p className={styles.header_title}>
-          DEV<span>.LAB</span>
+          AG<span>.DEV</span>
         </p>
         <div className={styles.available_for_hire}>
           <div></div>

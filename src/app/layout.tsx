@@ -19,8 +19,38 @@ const playFairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "My Portfolio",
-  description: "My portfolio, alexsandrogomes.dev",
+  title: "Alexsandro Gomes | Desenvolvedor Web Full Stack",
+  description: "Portfólio de Alexsandro Gomes. Especialista em soluções de alto desempenho e infraestrutura escalável.",
+  keywords: [
+    "Desenvolvedor Full Stack",
+    "JavaScript",
+    "TypeScript",
+    "Desenvolvimento Web",
+    "Alexsandro Gomes",
+    "alexsandrogomes.dev",
+  ],
+  authors: [{ name: "Alexsandro Gomes", url: "https://alexsandrogomes.dev" }],
+  openGraph: {
+    title: "Portfólio de Alexsandro Gomes",
+    description: "Portfólio do desenvolvedor web full stack alexsandrogomes.dev",
+    url: "https://alexsandrogomes.dev",
+    siteName: "Alexsandro Gomes Dev",
+    locale: "pt_BR",
+    type: "website",
+    images: [
+      {
+        url: "https://alexsandrogomes.dev/images/photo.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Preview do portfólio de Alexsandro Gomes",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Alexsandro Gomes | Desenvolvedor Full Stack",
+    description: "Especialista em soluções web de alto desempenho.",
+  },
 };
 
 import Header from "../components/Header";

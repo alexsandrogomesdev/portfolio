@@ -1,6 +1,13 @@
 {
   "name": "portifolio",
   "version": "0.1.0",
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "not dead",
+    "not IE 11",
+    "not op_mini all"
+  ],
   "private": true,
   "scripts": {
     "dev": "next dev",

@@ -17,6 +17,7 @@ import {
   MapPin,
   PanelsTopLeft,
   Server,
+  SwatchBook,
 } from "lucide-react";
 import { useRef } from "react";
 
@@ -55,7 +56,7 @@ export default function Home() {
         </div>
         <div className={styles.people}>
           <figure>
-            <Image className={styles.photo} src="/images/photo.jpg" alt="Alexsandro Gomes" width={128} height={128} />
+            <Image className={styles.photo} src="/images/photo.jpeg" alt="Alexsandro Gomes" width={128} height={128} />
           </figure>
           <div>
             <span>Localização</span>
@@ -131,6 +132,11 @@ export default function Home() {
             <div></div>
           </li>
           <li className={styles.stack}>
+            <SwatchBook />
+            <span>Redis</span>
+            <div></div>
+          </li>
+          <li className={styles.stack}>
             <GitBranch />
             <span>Git</span>
             <div></div>
@@ -142,9 +148,11 @@ export default function Home() {
         <h2>Projetos</h2>
         <ul className={styles.projects}>
           <li className={styles.project}>
-            <figure>
-              <Image src="/images/bingou.png" alt="Bingou" width={325} height={245} />
-            </figure>
+            <a href="https://bingou.alexsandrogomes.dev" target="_blank" rel="noopener noreferrer">
+              <figure>
+                <Image src="/images/bingou.png" alt="Bingou" width={325} height={245} />
+              </figure>
+            </a>
             <h4>Bingou</h4>
             <p>Ferramenta para gerar cartelas, marcação digital e sorteador de bolas de bingo.</p>
             <div>
@@ -154,6 +162,7 @@ export default function Home() {
               <span>PostgreSQL</span>
               <span>Docker</span>
               <span>Nginx</span>
+              <span>Redis</span>
               <span>Capacitor</span>
             </div>
           </li>
