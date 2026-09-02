@@ -166,6 +166,21 @@ export default function Home() {
               <span>Capacitor</span>
             </div>
           </li>
+          <li className={styles.project}>
+            <a href="https://faria-contabilidade.alexsandrogomes.dev" target="_blank" rel="noopener noreferrer">
+              <figure>
+                <Image src="/images/faria-contabilidade.png" alt="Faria contabilidade" width={325} height={245} />
+              </figure>
+            </a>
+            <h4>Faria contabilidade</h4>
+            <p>Site institucional para uma empresa de gestão contábil e tributária.</p>
+            <div>
+              <span>Next.js</span>
+              <span>TypeScript</span>
+              <span>Cloudflare Pages</span>
+              <span>Supabase</span>
+            </div>
+          </li>
         </ul>
       </section>
 
