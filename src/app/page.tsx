@@ -30,7 +30,7 @@ export default function Home() {
       block: "center",
     });
   };
-
+ 
   return (
     <section className={styles.section_page}>
       <section className={styles.first_section}>
