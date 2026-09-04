@@ -18,11 +18,14 @@ import {
   PanelsTopLeft,
   Server,
   SwatchBook,
-  
 } from "lucide-react";
 import { useRef } from "react";
- 
+
+import { useMultiScrollReveal } from "../hooks/useScrollReveal";
+
 export default function Home() {
+  useMultiScrollReveal(".reveal-item");
+
   const projectsRef = useRef<HTMLTableSectionElement>(null);
 
   const scrollToProjects = () => {
@@ -31,7 +34,7 @@ export default function Home() {
       block: "center",
     });
   };
- 
+
   return (
     <section className={styles.section_page}>
       <section className={styles.first_section}>
@@ -72,72 +75,72 @@ export default function Home() {
       <section className={styles.second_section}>
         <h2>Tecnologias</h2>
         <ul className={styles.stacks}>
-          <li className={styles.stack}>
+          <li className={`${styles.stack} reveal-item`}>
             <PanelsTopLeft />
             <span>Next.js</span>
             <div></div>
           </li>
-          <li className={styles.stack}>
+          <li className={`${styles.stack} reveal-item`}>
             <Layers />
             <span>React</span>
             <div></div>
           </li>
-          <li className={styles.stack}>
+          <li className={`${styles.stack} reveal-item`}>
             <CodeXml />
             <span>HTML</span>
             <div></div>
           </li>
-          <li className={styles.stack}>
+          <li className={`${styles.stack} reveal-item`}>
             <PanelsTopLeft />
             <span>CSS</span>
             <div></div>
           </li>
-          <li className={styles.stack}>
+          <li className={`${styles.stack} reveal-item`}>
             <FileCode />
             <span>TypeScript</span>
             <div></div>
           </li>
-          <li className={styles.stack}>
+          <li className={`${styles.stack} reveal-item`}>
             <CodeXml />
             <span>JavaScript</span>
             <div></div>
           </li>
-          <li className={styles.stack}>
+          <li className={`${styles.stack} reveal-item`}>
             <Server />
             <span>Node.js</span>
             <div></div>
           </li>
-          <li className={styles.stack}>
+          <li className={`${styles.stack} reveal-item`}>
             <Globe />
             <span>PHP</span>
             <div></div>
           </li>
-          <li className={styles.stack}>
+          <li className={`${styles.stack} reveal-item`}>
             <Database />
             <span>MySQL</span>
             <div></div>
           </li>
-          <li className={styles.stack}>
+          <li className={`${styles.stack} reveal-item`}>
             <Database />
             <span>PostgreSQL</span>
             <div></div>
           </li>
-          <li className={styles.stack}>
+          <li className={`${styles.stack} reveal-item`}>
             <Container />
             <span>Docker</span>
             <div></div>
           </li>
-          <li className={styles.stack}>
+          <li className={`${styles.stack} reveal-item`}>
             <Cpu />
             <span>NGINX</span>
             <div></div>
           </li>
-          <li className={styles.stack}>
+          <li className={`${styles.stack} reveal-item`}>
             <SwatchBook />
             <span>Redis</span>
             <div></div>
           </li>
-          <li className={styles.stack}>
+          <li className={`${styles.stack} reveal-item`}>
             <GitBranch />
             <span>Git</span>
             <div></div>
@@ -148,7 +151,7 @@ export default function Home() {
       <section ref={projectsRef} className={styles.third_section}>
         <h2>Projetos</h2>
         <ul className={styles.projects}>
-          <li className={styles.project}>
+          <li className={`${styles.project} reveal-item`}>
             <a href="https://bingou.alexsandrogomes.dev" target="_blank" rel="noopener noreferrer">
               <figure>
                 <Image src="/images/bingou.png" alt="Bingou" width={325} height={245} />
@@ -167,7 +170,7 @@ export default function Home() {
               <span>Capacitor</span>
             </div>
           </li>
-          <li className={styles.project}>
+          <li className={`${styles.project} reveal-item`}>
             <a href="https://faria-contabilidade.alexsandrogomes.dev" target="_blank" rel="noopener noreferrer">
               <figure>
                 <Image src="/images/faria-contabilidade.png" alt="Faria contabilidade" width={325} height={245} />
@@ -175,6 +178,21 @@ export default function Home() {
             </a>
             <h4>Faria contabilidade</h4>
             <p>Site institucional para uma empresa de gestão contábil e tributária.</p>
+            <div>
+              <span>Next.js</span>
+              <span>TypeScript</span>
+              <span>Cloudflare Pages</span>
+              <span>Supabase</span>
+            </div>
+          </li>
+          <li className={`${styles.project} reveal-item`}>
+            <a href="https://botanin.alexsandrogomes.dev" target="_blank" rel="noopener noreferrer">
+              <figure>
+                <Image src="/images/botanin.png" alt="botânin" width={325} height={245} />
+              </figure>
+            </a>
+            <h4>botânin</h4>
+            <p>Landing page para uma marca de camisetas botânicas.</p>
             <div>
               <span>Next.js</span>
               <span>TypeScript</span>

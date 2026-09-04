@@ -202,17 +202,20 @@
 .projects {
   display: grid;
   grid-template-columns: repeat(1, auto);
-  gap: 64px;
+  gap: 32px;
 }
 .project {
   display: flex;
   flex-flow: column;
+  border: solid 1px #e7ebf1;
+  padding: 16px;
+  border-radius: 16px;
 }
 .project figure {
-  border: solid 1px #dee5f2;
+  border: solid 1px #f5f5f5;
   overflow: hidden;
-  min-width: calc(100dvw - 48px);
-  max-width: calc(100dvw - 48px);
+  min-width: calc(100dvw - 80px);
+  max-width: calc(100dvw - 80px);
   min-height: 245px;
   max-height: 245px;
   border-radius: 16px;
@@ -221,6 +224,7 @@
 .project figure img {
   object-fit: contain;
   margin: 0 auto;
+  border-radius: 16px;
 }
 .project h4 {
   font-size: 24px;
