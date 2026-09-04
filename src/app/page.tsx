@@ -19,12 +19,50 @@ import {
   Server,
   SwatchBook,
 } from "lucide-react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { useMultiScrollReveal } from "../hooks/useScrollReveal";
 
 export default function Home() {
-  useMultiScrollReveal(".reveal-item");
+  interface Project {
+    name: string;
+    link: string;
+    image: string;
+    description: string;
+    stacks: string[];
+  }
+  const [projects, setProjects] = useState<Project[] | null>(null);
+  useEffect(() => {
+    const defineProjects = () => {
+      setProjects([
+        {
+          name: "Bingou",
+          link: "https://bingou.alexsandrogomes.dev",
+          image: "/bingou.png",
+          description: "Ferramenta para gerar cartelas, marcação digital e sorteador de bolas de bingo.",
+          stacks: ["React", "TypeScript", "Node.JS", "PostgreSQL", "Docker", "Nginx", "Redis", "Capacitor"],
+        },
+        {
+          name: "Faria contabilidade",
+          link: "https://faria-contabilidade.alexsandrogomes.dev",
+          image: "/faria-contabilidade.png",
+          description: "Site institucional para uma empresa de gestão contábil e tributária.",
+          stacks: ["Next.js", "TypeScript", "Cloudflare Pages", "Supabase"],
+        },
+        {
+          name: "botânin",
+          link: "https://botanin.alexsandrogomes.dev",
+          image: "/botanin.png",
+          description: "Landing page para uma marca de camisetas com estilo botânico.",
+          stacks: ["Next.js", "TypeScript", "Cloudflare Pages", "Supabase"],
+        },
+      ]);
+    };
+
+    defineProjects();
+  }, []);
+
+  const { observerItemRef } = useMultiScrollReveal(".reveal-item");
 
   const projectsRef = useRef<HTMLTableSectionElement>(null);
 
@@ -45,8 +83,8 @@ export default function Home() {
             <br></br>architecture.
           </h1>
           <h2>
-            Desenvolvedor web full-stack criando aplicações de alto desempenho com foco em arquitetura sólida e
-            experiências memoráveis.
+            Criação de sites, landing pages, e-commerces, aplicativos e qualquer sistema web de alta performance.
+            Combino design profissional e código robusto para transformar visitantes em clientes.
           </h2>
           <div>
             <a onClick={scrollToProjects}>
@@ -60,7 +98,7 @@ export default function Home() {
         </div>
         <div className={styles.people}>
           <figure>
-            <Image className={styles.photo} src="/images/photo.jpeg" alt="Alexsandro Gomes" width={128} height={128} />
+            <Image className={styles.photo} src="/photo.jpeg" alt="Alexsandro Gomes" width={128} height={128} />
           </figure>
           <div>
             <span>Localização</span>
@@ -151,55 +189,23 @@ export default function Home() {
       <section ref={projectsRef} className={styles.third_section}>
         <h2>Projetos</h2>
         <ul className={styles.projects}>
-          <li className={`${styles.project} reveal-item`}>
-            <a href="https://bingou.alexsandrogomes.dev" target="_blank" rel="noopener noreferrer">
-              <figure>
-                <Image src="/images/bingou.png" alt="Bingou" width={325} height={245} />
-              </figure>
-            </a>
-            <h4>Bingou</h4>
-            <p>Ferramenta para gerar cartelas, marcação digital e sorteador de bolas de bingo.</p>
-            <div>
-              <span>React</span>
-              <span>TypeScript</span>
-              <span>Node.js</span>
-              <span>PostgreSQL</span>
-              <span>Docker</span>
-              <span>Nginx</span>
-              <span>Redis</span>
-              <span>Capacitor</span>
-            </div>
-          </li>
-          <li className={`${styles.project} reveal-item`}>
-            <a href="https://faria-contabilidade.alexsandrogomes.dev" target="_blank" rel="noopener noreferrer">
-              <figure>
-                <Image src="/images/faria-contabilidade.png" alt="Faria contabilidade" width={325} height={245} />
-              </figure>
-            </a>
-            <h4>Faria contabilidade</h4>
-            <p>Site institucional para uma empresa de gestão contábil e tributária.</p>
-            <div>
-              <span>Next.js</span>
-              <span>TypeScript</span>
-              <span>Cloudflare Pages</span>
-              <span>Supabase</span>
-            </div>
-          </li>
-          <li className={`${styles.project} reveal-item`}>
-            <a href="https://botanin.alexsandrogomes.dev" target="_blank" rel="noopener noreferrer">
-              <figure>
-                <Image src="/images/botanin.png" alt="botânin" width={325} height={245} />
-              </figure>
-            </a>
-            <h4>botânin</h4>
-            <p>Landing page para uma marca de camisetas botânicas.</p>
-            <div>
-              <span>Next.js</span>
-              <span>TypeScript</span>
-              <span>Cloudflare Pages</span>
-              <span>Supabase</span>
-            </div>
-          </li>
+          {projects &&
+            projects.map((project, key) => (
+              <li key={`project_${key}`} ref={observerItemRef} className={`${styles.project} reveal-item`}>
+                <a href={project.link} target="_blank" rel="noopener noreferrer">
+                  <figure>
+                    <Image src={project.image} alt={project.name} width={325} height={245} />
+                  </figure>
+                </a>
+                <h4>{project.name}</h4>
+                <p>{project.description}</p>
+                <div>
+                  {project.stacks.map((stack, sKey) => (
+                    <span key={`project_${key}_stack_${sKey}`}>{stack}</span>
+                  ))}
+                </div>
+              </li>
+            ))}
         </ul>
       </section>
 

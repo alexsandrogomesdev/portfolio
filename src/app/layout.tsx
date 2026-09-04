@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://alexsandrogomes.dev/images/photo.jpeg",
+        url: "https://alexsandrogomes.dev/photo.jpeg",
         width: 1200,
         height: 630,
         alt: "Preview do portfólio de Alexsandro Gomes",
