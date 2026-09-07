@@ -1,17 +1,14 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 
 export function useMultiScrollReveal(selector: string = ".reveal-item") {
   const observerRef = useRef<IntersectionObserver>(null);
 
   useEffect(() => {
-    const elements = document.querySelectorAll(selector);
-    if (!elements.length) return;
-
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
+            entry.target.classList.add("reveal-item-visible");
             observerRef.current?.unobserve(entry.target);
           }
         });
@@ -19,14 +16,19 @@ export function useMultiScrollReveal(selector: string = ".reveal-item") {
       { threshold: 0.15 },
     );
 
-    elements.forEach((el) => observerRef.current?.observe(el));
+    requestAnimationFrame(() => {
+      const elements = document.querySelectorAll(selector);
+      if (!elements.length) return;
+      elements.forEach((el) => observerRef.current?.observe(el));
+    });
 
     return () => observerRef.current?.disconnect();
   }, [selector]);
 
-  const observerItemRef = useCallback((node: HTMLElement | null) => {
-    if (node && observerRef.current) {
-      observerRef.current.observe(node);
+  const observerItemRef = useCallback((el: HTMLElement | null) => {
+    if (!el) return;
+    if (observerRef.current) {
+      observerRef.current.observe(el);
     }
   }, []);
 
