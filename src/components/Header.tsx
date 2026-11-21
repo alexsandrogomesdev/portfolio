@@ -10,7 +10,7 @@ const Header = () => {
         </p>
         <div className={styles.available_for_hire}>
           <div></div>
-          <span>Available for hire</span>
+          <span>Disponível</span>
         </div>
       </div>
     </header>

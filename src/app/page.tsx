@@ -23,14 +23,15 @@ import { useEffect, useRef, useState } from "react";
 
 import { useMultiScrollReveal } from "../hooks/useScrollReveal";
 
+interface Project {
+  name: string;
+  link: string;
+  image: string;
+  description: string;
+  stacks: string[];
+}
+
 export default function Home() {
-  interface Project {
-    name: string;
-    link: string;
-    image: string;
-    description: string;
-    stacks: string[];
-  }
   const [projects, setProjects] = useState<Project[] | null>(null);
   useEffect(() => {
     const defineProjects = () => {
@@ -77,14 +78,14 @@ export default function Home() {
     <section className={styles.section_page}>
       <section className={styles.first_section}>
         <div className={styles.presentation}>
-          <p>FULLSTACK DEVELOPER</p>
+          <p>DESENVOLVEDOR FULLSTACK</p>
           <h1>
-            Building <span>digital</span>
-            <br></br>architecture.
+            AGC <span>TECHNOLOGY</span>
           </h1>
           <h2>
             Criação de sites, landing pages, e-commerces, aplicativos e qualquer sistema web de alta performance.
-            Combino design profissional e código robusto para transformar visitantes em clientes.
+            Desenvolvimento de sistemas web sob medida para empresas que precisam automatizar processos e escalar suas
+            operações com segurança.
           </h2>
           <div>
             <a onClick={scrollToProjects}>
@@ -212,19 +213,19 @@ export default function Home() {
       <section className={styles.fourth_section}>
         <h2>Experiência</h2>
         <ul className={styles.experiences}>
-          <li className={styles.experience}>
+          <li className={`${styles.experience} reveal-item`}>
             <div>
               <h3>Desenvolvedor Full-Stack</h3>
               <span>
                 <MapPin /> Freelancer
               </span>
               <span>
-                <Calendar /> Jan/2026 - Atualmente
+                <Calendar /> Jun/2025 - Atualmente
               </span>
             </div>
             <p>Desenvolvedor web utilizando Next.js, React, TypeScript, Node.js, PostgreSQL, Nginx e Docker.</p>
           </li>
-          <li className={styles.experience}>
+          <li className={`${styles.experience} reveal-item`}>
             <div>
               <h3>Desenvolvedor Full-Stack</h3>
               <span>
@@ -242,12 +243,9 @@ export default function Home() {
       <section className={styles.fifth_section}>
         <div>
           <h2>
-            Let&apos;s build<br></br>the <span>future</span>.
+            Construindo<br></br>o <span>futuro</span>.
           </h2>
-          <p>
-            Atualmente aceitando oportunidades freelance e posições em tempo integral. Vamos conversar sobre seu próximo
-            projeto.
-          </p>
+          <p>Vamos conversar sobre seu próximo projeto ?</p>
         </div>
         <a href="https://wa.me/5511995452626" target="_blank" rel="noopener noreferrer">
           <Mail />

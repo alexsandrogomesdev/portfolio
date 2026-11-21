@@ -22,7 +22,7 @@ const Footer = () => {
           </li>
         </ul>
 
-        <p>© 2026 Developed by alexsandrogomes.dev</p>
+        <p>© 2026 Desenvolvido por alexsandrogomes.dev</p>
       </div>
     </footer>
   );

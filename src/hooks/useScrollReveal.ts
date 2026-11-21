@@ -8,7 +8,7 @@ export function useMultiScrollReveal(selector: string = ".reveal-item") {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("reveal-item-visible");
+            entry.target.setAttribute("data-visible", "true");
             observerRef.current?.unobserve(entry.target);
           }
         });
